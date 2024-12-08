@@ -1,0 +1,16 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: javatechie
+
+  kafka:
+    bootstrap-servers: localhost:9092   # Kafka broker addresses
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer    # Serializer for the key
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer  # Serializer for the value (event)
+
+order:
+  event:
+    topicName: order-events

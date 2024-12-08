@@ -1,0 +1,21 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: javatechie
+
+
+  kafka:
+    bootstrap-servers: localhost:9092   # Kafka broker addresses
+    consumer:
+      group-id: shipping-service    # Group ID for the consumer
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        spring.json.trusted.packages: "*"  # You can restrict this to your package for added security
+
+
+shipping:
+  event:
+    topicName: shipping-events

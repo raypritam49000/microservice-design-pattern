@@ -1,0 +1,29 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: HOTEL-SERVICE
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/microservice
+    username: postgres
+    password: 1998
+  jpa:
+    properties:
+      hibernate.hbm2ddl.auto: update
+      hibernate.show_sql: true
+      hibernate.format_sql: true
+
+  config:
+    import: optional:configserver:http://localhost:8085
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8080/realms/demo/protocol/openid-connect/certs
+
+
+
+

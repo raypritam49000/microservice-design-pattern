@@ -1,0 +1,48 @@
+server.port: 8060
+
+spring:
+  application:
+    name: api-gateway-service
+  cloud:
+    gateway:
+      default-filters:
+        - TokenRelay=
+      routes:
+        - id: callme-service
+          uri: lb://callme-service
+          predicates:
+            - Path=/callme/**
+        - id: caller-service
+          uri: lb://caller-service
+          predicates:
+            - Path=/caller/**
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8080/realms/demo/protocol/openid-connect/certs
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/realms/demo
+        registration:
+          spring-with-test-scope:
+            provider: keycloak
+            client-id: spring-with-test-scope
+            client-secret: W4xt7ER6l24DxPGLfzbLhdl0WgvLt10Z
+            authorization-grant-type: authorization_code
+            scope: openid
+
+logging.level:
+  org.springframework.cloud.gateway: DEBUG
+  org.springframework.security: DEBUG
+  org.springframework.web.reactive.function.client: TRACE
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka

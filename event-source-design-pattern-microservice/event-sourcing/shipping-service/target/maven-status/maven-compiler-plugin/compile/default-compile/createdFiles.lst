@@ -1,0 +1,6 @@
+com/javatechie/entity/OrderEvent.class
+com/javatechie/dto/enums/OrderStatus.class
+com/javatechie/service/ShippingEventService.class
+com/javatechie/repository/OrderEventRepository.class
+com/javatechie/ShippingServiceApplication.class
+com/javatechie/controller/ShippingController.class

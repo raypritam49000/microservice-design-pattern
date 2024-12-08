@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="springboot-kafka-tutorial" />
+        <module name="apache-kafka-consumer-demo" />
+        <module name="kafka-consumer-database" />
+        <module name="kafka-producer-wikimedia" />
+        <module name="apache-kafka-producer-demo" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="apache-kafka-consumer-demo" options="-parameters" />
+      <module name="apache-kafka-producer-demo" options="-parameters" />
+      <module name="kafka-consumer-database" options="-parameters" />
+      <module name="kafka-producer-wikimedia" options="-parameters" />
+      <module name="springboot-kafka-tutorial" options="-parameters" />
+    </option>
+  </component>
+</project>

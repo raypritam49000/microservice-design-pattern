@@ -1,0 +1,35 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: API-GATEWAY
+  output:
+    ansi:
+      enabled: ALWAYS
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+
+jwt:
+  secret: 98qiweyqaeyqieqiqeqieuiqueiquueqieiqueiuqiueuiquiaeui
+  prefix: Bearer
+  expiration: 3600000  # 1 hour in milliseconds
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty.http.client: DEBUG
+    reactor.netty.http.server: DEBUG

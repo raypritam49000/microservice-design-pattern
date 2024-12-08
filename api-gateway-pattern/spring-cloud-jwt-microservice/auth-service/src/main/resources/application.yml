@@ -1,0 +1,37 @@
+server:
+  port: 8800
+  servlet:
+    context-path: /auth
+
+spring:
+  application:
+    name: auth-service
+  output:
+    ansi:
+      enabled: ALWAYS
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+
+app:
+  auth:
+    header.key: Authorization
+    apikey.key: apikey
+    token.type: Bearer
+    secret: test
+    ttl: 1800  #Time To Live in minutes
+
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty.http.client: DEBUG
+    reactor.netty.http.server: DEBUG
+
+
